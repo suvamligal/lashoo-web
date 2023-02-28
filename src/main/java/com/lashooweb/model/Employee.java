@@ -20,7 +20,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name ="employee")
+@Table(name ="employee_tbl")
 public class Employee {
 
 	@Id
@@ -38,8 +38,7 @@ public class Employee {
 	@JoinColumn(name="role_id")
 	private Role role;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="address_id")
+	@OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
 	private Address address;
 
 }

@@ -20,14 +20,13 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name="role")
+@Table(name="role_tbl")
 public class Role {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "role_id")
 	private int role_id;
 	
-	private CustomerRoles roleName;
-	
-	
+	// private CustomerRoles roles;
+		
 }

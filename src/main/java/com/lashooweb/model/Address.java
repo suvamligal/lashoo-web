@@ -1,10 +1,11 @@
 package com.lashooweb.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,12 +19,11 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name="address")
+@Table(name="address_tbl")
 public class Address {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "adress_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int adress_id;
 	
 	private String street;
@@ -33,5 +33,8 @@ public class Address {
 	private String country;
 	private String zipCode;
 	
+	@OneToOne()
+	@JoinColumn(name="emp_id", referencedColumnName = "employee_id")
+	private Employee employee;
 
 }
