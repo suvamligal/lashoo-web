@@ -32,7 +32,5 @@ public class Role {
 	
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "role")
 	private Employee employee;
-	
-	// private CustomerRoles roles;
-		
+			
 }
