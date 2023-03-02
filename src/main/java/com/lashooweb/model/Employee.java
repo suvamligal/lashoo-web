@@ -2,6 +2,7 @@ package com.lashooweb.model;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -34,11 +35,12 @@ public class Employee {
 	private String username;
 	private String password;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="role_id")
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="role_id")   //In employee_tbl "role_id" column is joined. 
 	private Role role;
 	
-	@OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="address_id")  //In employee table, a column with name "address_id" is created which is a foreign key of table "address_tbl". 
 	private Address address;
 
 }

@@ -1,12 +1,13 @@
 package com.lashooweb.model;
 
-import com.lashooweb.constants.CustomerRoles;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +27,11 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "role_id")
 	private int role_id;
+	
+	private String roleName;
+	
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "role")
+	private Employee employee;
 	
 	// private CustomerRoles roles;
 		

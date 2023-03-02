@@ -1,5 +1,6 @@
 package com.lashooweb.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,8 +34,6 @@ public class Address {
 	private String country;
 	private String zipCode;
 	
-	@OneToOne()
-	@JoinColumn(name="emp_id", referencedColumnName = "employee_id")
+	@OneToOne(cascade = CascadeType.ALL, mappedBy="address")
 	private Employee employee;
-
 }
