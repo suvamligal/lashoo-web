@@ -7,6 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LashooWebApplication {
 
 	public static void main(String[] args) {
+		
+//           SaveStudentUtil.SaveStudentobject();
+		
 		SpringApplication.run(LashooWebApplication.class, args);
 	}
 
