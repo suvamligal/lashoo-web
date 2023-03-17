@@ -25,8 +25,8 @@ import lombok.ToString;
 public class Customer {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int customerId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int customer_id;
 	
 	private String firstName;
 	private String lastName;
@@ -37,7 +37,7 @@ public class Customer {
 	
 	// private Address address;
 	
-	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
 	private List<Order> orders;
 	
 	
